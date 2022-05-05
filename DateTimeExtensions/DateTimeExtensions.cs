@@ -63,4 +63,15 @@ public static class DateTimeExtensions
 
         return firstDay.AddDays(offset);
     }
+
+    public static DateTime Next(this DateTime dateTime, DayOfWeek dayOfWeek)
+    {
+        var offset = dayOfWeek - dateTime.DayOfWeek;
+        if (offset < 0)
+        {
+            offset += 7;
+        }
+
+        return dateTime.AddDays(offset);
+    }
 }
